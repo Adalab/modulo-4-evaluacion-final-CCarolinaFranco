@@ -91,13 +91,12 @@ server.get('/recetas/:id', async (req, res) => {
 
 //POST para anadir receta
 server.post('/recetas', async (req, res,) => {
-  
   const newRecipe = req.body;
   try {
     const insert = "INSERT INTO  recetas (nombre, ingredientes, instrucciones) value (?,?,?) "
     const conn = await getConnection()
     const [result] = await conn.query(insert, [
-     
+
       newRecipe.nombre,
       newRecipe.ingredientes,
       newRecipe.instrucciones,
